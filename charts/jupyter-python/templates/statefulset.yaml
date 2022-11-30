@@ -150,7 +150,9 @@ spec:
             limits:
               cpu: {{ .Values.resources.limits.cpu }}
               memory: {{ .Values.resources.limits.memory }}
+              {{- if .Values.resources.gpuEnabled }}
               {{- toYaml .Values.resources.limits.gpu | nindent 14 }}
+              {{- end }}
 
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
