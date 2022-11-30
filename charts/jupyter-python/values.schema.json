@@ -91,6 +91,11 @@
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
             "properties": {
+                "gpuEnabled": {
+                    "description": "Enable GPU",
+                    "type": "boolean",
+                    "default": false
+                },
                 "requests": {
                     "description": "Guaranteed resources",
                     "type": "object",
@@ -157,21 +162,28 @@
                             "sliderExtremitySemantic": "Maximum",
                             "sliderRangeId": "memory"
                           },
-                          "nvidia.com/gpu": {
-                            "description": "GPU to allocate to this instance. This is also requested",
-                            "type": "string",
-                            "default": "0",
-                            "render": "slider",
-                            "sliderMin": 0,
-                            "sliderMax": 3,
-                            "sliderStep": 1,
-                            "sliderUnit": "",
+                          "gpu": {
+                            "type": "object",
                             "form": true,
-                            "hidden": {
-                                "value": false,
-                                "path": "resources/gpu"
+                            "properties": {
+                                "nvidia.com/gpu": {
+                                    "description": "GPU to allocate to this instance. This is also requested",
+                                    "type": "string",
+                                    "default": "0",
+                                    "render": "slider",
+                                    "sliderMin": 0,
+                                    "sliderMax": 3,
+                                    "sliderStep": 1,
+                                    "sliderUnit": "",
+                                    "form": true,
+                                    "hidden": {
+                                        "value": false,
+                                        "path": "resources/gpuEnabled"
+                                    }
+                                  }
                             }
                           }
+                          
                     }
                 }
             }
