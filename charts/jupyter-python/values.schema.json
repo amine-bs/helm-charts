@@ -5,10 +5,12 @@
         "gpu": {
             "description": "a boolean variable to enabled/disable gpu",
             "type": "object",
+            "form": true,
             "properties": {
                 "gpuEnabled": {
                     "type": "boolean",
-                    "default": false
+                    "default": false,
+                    "form": true
                 }
             }
           },
