@@ -674,29 +674,6 @@
               }
             }
           }
-    },
-    "if":{
-      "properties": {
-        "resources": {
-          "properties": {
-            "limits":{
-              "properties": {
-                "nvidia.com/gpu": { "const": "0" }
-              }
-            }
-          }
-        }
-      }
-    },
-    "then": {
-      "properties": {
-        "gpuEnabled": { "const": false }
-      }
-    },
-    "else": {
-      "properties": {
-        "gpuEnabled": { "const": true }
-      }
     }
 
 }
