@@ -32,7 +32,7 @@
                         "enum": ["IfNotPresent","Always","Never"]
                       },
                       "version": {
-                        "description": "supported versions",
+                        "description": "Python version",
                         "type": "string",
                         "enum": [
                             "py3.10.4",
