@@ -66,10 +66,10 @@ spec:
           {{- if .Values.service.image.custom.enabled }}
           image: "{{ .Values.service.image.custom.version }}"
           {{- else }}
-          {{- if .Values.resources.gpu }}
-          image: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}-gpu"
-          {{- else }}
+          {{- if eq .Values.resources.limits.nvidia.com/gpu "0" }}
           image: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}"
+          {{- else }}
+          image: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}-gpu"
           {{- end }}
           {{- end }}
           command: ["/bin/sh","-c"]
