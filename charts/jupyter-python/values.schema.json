@@ -173,7 +173,7 @@
                             "sliderUnit": "",
                             "form": true,
                             "hidden": {
-                                "value": true,
+                                "value": false,
                                 "path": "resources/gpu"
                             }
                           }
