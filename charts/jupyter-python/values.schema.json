@@ -2,18 +2,6 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "gpu": {
-            "description": "a boolean variable to enabled/disable gpu",
-            "type": "object",
-            "form": true,
-            "properties": {
-                "gpuEnabled": {
-                    "type": "boolean",
-                    "default": false,
-                    "form": true
-                }
-            }
-          },
           "dependencies": {
             "description": "Choose a library to be in your work environment",
             "type": "object",
@@ -103,6 +91,11 @@
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
             "properties": {
+                "gpu": {
+                    "description": "Enable gpu",
+                    "type": "boolean",
+                    "default": false
+                },
                 "requests": {
                     "description": "Guaranteed resources",
                     "type": "object",
@@ -177,7 +170,12 @@
                             "sliderMin": 0,
                             "sliderMax": 3,
                             "sliderStep": 1,
-                            "sliderUnit": ""
+                            "sliderUnit": "",
+                            "form": true,
+                            "hidden": {
+                                "value": true,
+                                "path": "resources/gpu"
+                            }
                           }
                     }
                 }
@@ -678,37 +676,5 @@
               }
             }
           }
-    },
-    "if":{
-      "properties": {
-        "resources": {
-          "properties": {
-            "limits":{
-              "properties": {
-                "nvidia.com/gpu": { "const": "0" }
-              }
-            }
-          }
-        }
-      }
-    },
-    "then": {
-      "properties": {
-        "gpu": { 
-            "properties": {
-                "gpuEnabled": { "const": false }
-            }
-         }
-      }
-    },
-    "else": {
-      "properties": {
-        "gpu": {
-            "properties": {
-                "gpuEnabled": { "const": true }
-            }
-        }
-      }
     }
-
 }
