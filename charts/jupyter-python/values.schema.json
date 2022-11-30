@@ -2,12 +2,14 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "gpuEnabled": {
+        "gpu": {
             "description": "a boolean variable to enabled/disable gpu",
-            "type": "boolean",
-            "default": false,
-            "hidden":{
-              "value": true
+            "type": "object",
+            "properties": {
+                "gpuEnabled": {
+                    "type": "boolean",
+                    "default": false
+                }
             }
           },
           "dependencies": {
@@ -674,6 +676,37 @@
               }
             }
           }
+    },
+    "if":{
+      "properties": {
+        "resources": {
+          "properties": {
+            "limits":{
+              "properties": {
+                "nvidia.com/gpu": { "const": "0" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "then": {
+      "properties": {
+        "gpu": { 
+            "properties": {
+                "gpuEnabled": { "const": false }
+            }
+         }
+      }
+    },
+    "else": {
+      "properties": {
+        "gpu": {
+            "properties": {
+                "gpuEnabled": { "const": true }
+            }
+        }
+      }
     }
 
 }
