@@ -2,7 +2,7 @@
 {{- define "docker-image" -}}
 {{- $name := "" }}
 {{- if .Values.service.image.custom.enabled }}
-{{- $name := "{{ .Values.service.custom.version }}" }}
+{{- $name := "{{ .Values.service.image.custom.version }}" }}
 {{- else }}
 {{- if  .Values.resources.gpuEnabled  }}
 {{- $name = "inseefrlab/onyxia-jupyter-pyspark:{{ .Values.service.image.version}}-gpu" }}
