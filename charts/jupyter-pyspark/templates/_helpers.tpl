@@ -1,14 +1,14 @@
 {{/* vim: set filetype=mustache: */}}
 {{- define "docker-image" -}}
-{{- $name := "" }}
 {{- if .Values.service.image.custom.enabled }}
-{{- $name := "{{ .Values.service.image.custom.version }}" }}
+{{- printf  .Values.service.image.custom.version  }}
 {{- else }}
+{{- $image := "inseefrlab/onyxia-jupyter-pyspark" }}
+{{- $tag := .Values.service.image.version }}
 {{- if  .Values.resources.gpuEnabled  }}
-{{- $name = "inseefrlab/onyxia-jupyter-pyspark:{{ .Values.service.image.version}}-gpu" }}
+{{- printf "%s:%s-gpu" $image $tag }}
 {{- else }}
-{{- $name = "inseefrlab/onyxia-jupyter-pyspark:{{ .Values.service.image.version}}" }}
+{{- printf "%s:%s" $image $tag }}
 {{- end }}
 {{- end }}
-{{- printf $name -}}
 {{- end }}
