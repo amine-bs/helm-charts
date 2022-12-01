@@ -2,6 +2,29 @@ apiVersion: v1
 entries:
   jupyter-pyspark:
   - apiVersion: v2
+    created: "2022-12-01T11:00:07.716912026Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The JupyterLab IDE with PySpark, an interface to use Apache Spark
+      from Python.
+    digest: 4eeb38723f134fdfcc42b00fce3b1127031987c75472648e46036285f9d3ae1d
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    - Spark
+    name: jupyter-pyspark
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/jupyter-pyspark-1.11.3/jupyter-pyspark-1.11.3.tgz
+    version: 1.11.3
+  - apiVersion: v2
     created: "2022-12-01T10:43:33.85964873Z"
     dependencies:
     - name: library-chart
@@ -126,6 +149,30 @@ entries:
     version: 1.5.2
   rstudio-sparkr:
   - apiVersion: v2
+    created: "2022-12-01T11:00:07.955228422Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The RStudio IDE with a collection of standard data science packages.
+      It includes SparkR, an R package that provides an interface to use Apache Spark
+      from R.
+    digest: 5e047009c3f6072904c315e8f781ef8ca82f2c68e5c8352bf9bf95b4e7d96e77
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    - Spark
+    name: rstudio-sparkr
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/rstudio-sparkr-1.4.3/rstudio-sparkr-1.4.3.tgz
+    version: 1.4.3
+  - apiVersion: v2
     created: "2022-12-01T10:43:33.984237655Z"
     dependencies:
     - name: library-chart
@@ -196,4 +243,4 @@ entries:
     urls:
     - https://github.com/amine-bs/helm-charts/releases/download/vscode-python-1.2.2/vscode-python-1.2.2.tgz
     version: 1.2.2
-generated: "2022-12-01T10:43:33.984250956Z"
+generated: "2022-12-01T11:00:07.955247122Z"
