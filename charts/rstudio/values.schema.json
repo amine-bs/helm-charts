@@ -129,6 +129,27 @@
                             "sliderExtremity": "up",
                             "sliderExtremitySemantic": "Maximum",
                             "sliderRangeId": "memory"
+                          },
+                          "gpu": {
+                            "type": "object",
+                            "form": true,
+                            "properties": {
+                                "nvidia.com/gpu": {
+                                    "description": "GPU to allocate to this instance",
+                                    "type": "string",
+                                    "default": "1",
+                                    "render": "slider",
+                                    "sliderMin": 1,
+                                    "sliderMax": 3,
+                                    "sliderStep": 1,
+                                    "sliderUnit": "",
+                                    "form": true,
+                                    "hidden": {
+                                        "value": false,
+                                        "path": "resources/gpuEnabled"
+                                    }
+                                  }
+                            }
                           }
                     }
                 }

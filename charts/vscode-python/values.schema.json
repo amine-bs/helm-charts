@@ -83,7 +83,7 @@
                       "form": true,
                       "properties": {
                           "nvidia.com/gpu": {
-                              "description": "GPU to allocate to this instance.",
+                              "description": "GPU to allocate to this instance",
                               "type": "string",
                               "default": "1",
                               "render": "slider",

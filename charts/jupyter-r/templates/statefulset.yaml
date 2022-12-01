@@ -55,7 +55,11 @@ spec:
           {{- if .Values.service.image.custom.enabled }}
           image: "{{ .Values.service.image.custom.version }}"
           {{- else }}
-          image: "{{ .Values.service.image.version }}"
+          {{- if .Values.resources.gpuEnabled }}
+          image: "inseefrlab/onyxia-jupyter-r:{{ .Values.service.image.version }}-gpu"
+          {{- else }}
+          image: "inseefrlab/onyxia-jupyter-r:{{ .Values.service.image.version }}"
+          {{- end }}
           {{- end }}
           command: ["/bin/sh","-c"]
           args: ["{{ .Values.init.standardInitPath }} jupyter lab --no-browser --ip '0.0.0.0' --LabApp.token='$(PASSWORD)' --ContentsManager.allow_hidden=True"]
@@ -69,7 +73,11 @@ spec:
               {{- if .Values.service.image.custom.enabled }}
               value: "{{ .Values.service.image.custom.version }}"
               {{- else }}
-              value: "{{ .Values.service.image.version }}"
+              {{- if .Values.resources.gpuEnabled }}
+              value: "inseefrlab/onyxia-jupyter-r:{{ .Values.service.image.version }}-gpu"
+              {{- else }}
+              value: "inseefrlab/onyxia-jupyter-r:{{ .Values.service.image.version }}"
+              {{- end }}
               {{- end }}
             - name: NB_USER
               value: {{ .Values.environment.user }}
@@ -128,7 +136,15 @@ spec:
               port: http
             {{- toYaml .Values.startupProbe | nindent 12 }}     
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+              {{- if .Values.resources.gpuEnabled }}
+              {{- toYaml .Values.resources.limits.gpu | nindent 14 }}
+              {{- end }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               name: home   
