@@ -1,0 +1,152 @@
+apiVersion: v1
+entries:
+  jupyter-pyspark:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:55.077371819Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The JupyterLab IDE with PySpark, an interface to use Apache Spark
+      from Python.
+    digest: ff56edc88c9a1cc81eb818c08adb53ee7334618938816e384184d9a11ccc2e0b
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    - Spark
+    name: jupyter-pyspark
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/jupyter-pyspark-1.11.1/jupyter-pyspark-1.11.1.tgz
+    version: 1.11.1
+  jupyter-python:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:55.296446612Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The JupyterLab IDE with Python, Julia, and a collection of standard
+      data science packages.
+    digest: 67f06378a51037d3cd9bfd9a466fd932d4b718439a12af726aa5558f579fd124
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/inseefrlab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/jupyter-python-1.5.3/jupyter-python-1.5.3.tgz
+    version: 1.5.3
+  jupyter-r:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:55.514068594Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The JupyterLab IDE with an R kernel, and a collection of standard
+      data science packages.
+    digest: ad8282ff2fa3f2cf8315f503f0bffac3cbf5cd113de00425d769b434544df6ab
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - R
+    name: jupyter-r
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/jupyter-r-1.3.1/jupyter-r-1.3.1.tgz
+    version: 1.3.1
+  library-chart:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:55.740141144Z"
+    digest: 28fa70fb090a2b960210a53e21a21145a352225b7e3e652388711c51c3f22074
+    name: library-chart
+    type: library
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/library-chart-1.0.3/library-chart-1.0.3.tgz
+    version: 1.0.3
+  rstudio:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:55.97172314Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The RStudio IDE with a collection of standard data science packages.
+    digest: 2b87817cdc46cded9448f43a35b8f657b42771e0d381d2fbb45b9d3cfe04f767
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/rstudio-1.5.2/rstudio-1.5.2.tgz
+    version: 1.5.2
+  rstudio-sparkr:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:56.176114313Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The RStudio IDE with a collection of standard data science packages.
+      It includes SparkR, an R package that provides an interface to use Apache Spark
+      from R.
+    digest: 03366d956675c7b17b9441b2ec024ba303539d02d82091762d0f87c625ed3024
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    - Spark
+    name: rstudio-sparkr
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/rstudio-sparkr-1.4.1/rstudio-sparkr-1.4.1.tgz
+    version: 1.4.1
+  vscode-python:
+  - apiVersion: v2
+    created: "2022-12-01T10:33:56.418492397Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages.
+    digest: caf0b6d96458d8f6492acceac12144a4e386f7fed5011cc49b435f6c9646b140
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/vscode-python-1.2.2/vscode-python-1.2.2.tgz
+    version: 1.2.2
+generated: "2022-12-01T10:33:56.418503097Z"
