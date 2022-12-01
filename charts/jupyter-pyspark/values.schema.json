@@ -29,7 +29,7 @@
                 "value": true,
                 "path": "service/image/custom/enabled"
               },
-              "default": "inseefrlab/onyxia-jupyter-pyspark:py3.10.4-spark3.3.0"
+              "default": "py3.10.4-spark3.3.0"
             },
             "custom": {
               "description": "use a custom jupyter docker image",

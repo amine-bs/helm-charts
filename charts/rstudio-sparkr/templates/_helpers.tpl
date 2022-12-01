@@ -1,7 +1,7 @@
 {{/* vim: set filetype=mustache: */}}
 {{- define "docker-image" -}}
 {{- $name := "" }}
-{{- if .Values.service.custom.enabled }}
+{{- if .Values.service.image.custom.enabled }}
 {{- $name := "{{ .Values.service.custom.version }}" }}
 {{- else }}
 {{- if  .Values.resources.gpuEnabled  }}
