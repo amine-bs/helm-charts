@@ -84,7 +84,11 @@ spec:
               {{- if .Values.service.image.custom.enabled }}
               value: "{{ .Values.service.image.custom.version }}"
               {{- else }}
-              value: "{{ .Values.service.image.version }}"
+              {{- if .Values.resources.gpuEnabled }}
+              value: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}-gpu"
+              {{- else }}
+              value: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}"
+              {{- end }}
               {{- end }}
             - name: NB_USER
               value: {{ .Values.environment.user }}
@@ -153,10 +157,10 @@ spec:
               {{- if .Values.resources.gpuEnabled }}
               {{- toYaml .Values.resources.limits.gpu | nindent 14 }}
               {{- end }}
-
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
               memory: {{ .Values.resources.requests.memory }}
+
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               name: home

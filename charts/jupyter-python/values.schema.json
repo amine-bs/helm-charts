@@ -2,21 +2,6 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-          "dependencies": {
-            "description": "Choose a library to be in your work environment",
-            "type": "object",
-            "properties":{
-              "library": {
-                "type": "string",
-                "default": "none",
-                "enum": [
-                  "tensorflow",
-                  "pytorch",
-                  "none"
-                ]
-              }
-            }
-          },
         "service": {
             "description": "Service specific configuration",
             "type": "object",
@@ -30,6 +15,20 @@
                         "description": "option when pulling the docker image",
                         "default": "IfNotPresent",
                         "enum": ["IfNotPresent","Always","Never"]
+                      },
+                      "library": {
+                        "description": "You can choose Pytorch or Tensorflow to be in your environment",
+                        "type": "string",
+                        "enum": [
+                            "pytorch",
+                            "tensorflow",
+                            "none"
+                        ],
+                        "default": "none",
+                        "hidden": {
+                            "value": true,
+                            "path": "service/image/custom/enabled"
+                        }
                       },
                       "version": {
                         "description": "Python version",

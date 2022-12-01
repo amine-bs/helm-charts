@@ -53,7 +53,7 @@ spec:
           {{- if .Values.service.image.custom.enabled }}
           image: "{{ .Values.service.image.custom.version }}"
           {{- else }}
-          {{- if .Values.gpuEnabled }}
+          {{- if .Values.resources.gpuEnabled }}
           image: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}-gpu"
           {{- else }}
           image: "{{ include "docker-image" .}}:{{ .Values.service.image.version }}"
@@ -113,7 +113,15 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+              {{- if .Values.resources.gpuEnabled }}
+              {{- toYaml .Values.resources.limits.gpu | nindent 14 }}
+              {{- end }}
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
           volumeMounts:
             - mountPath: /home/{{ .Values.environment.user}}/work
               name: home         

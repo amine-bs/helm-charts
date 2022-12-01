@@ -2,33 +2,16 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "gpuEnabled": {
-      "description": "a boolean variable to enabled/disable gpu",
-      "type": "boolean",
-      "default": false,
-      "hidden":{
-        "value": true
-      }
-    },
-    "dependencies": {
-      "description": "Choose a library to be in your work environment",
-      "type": "object",
-      "properties":{
-        "library": {
-          "type": "string",
-          "default": "none",
-          "enum": [
-            "tensorflow",
-            "pytorch",
-            "none"
-          ]
-        }
-      }
-    },
     "resources": {
       "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
       "type": "object",
       "properties": {
+          "gpuEnabled": {
+            "description": "Enable GPU",
+            "title": "Enable GPU",
+            "type": "boolean",
+            "default": false
+        },
           "requests": {
               "description": "Guaranteed resources",
               "type": "object",
@@ -95,15 +78,26 @@
                       "sliderExtremitySemantic": "Maximum",
                       "sliderRangeId": "memory"
                     },
-                    "nvidia.com/gpu": {
-                      "description": "GPU to allocate to this instance. This is also requested",
-                      "type": "string",
-                      "default": "0",
-                      "render": "slider",
-                      "sliderMin": 0,
-                      "sliderMax": 3,
-                      "sliderStep": 1,
-                      "sliderUnit": ""
+                    "gpu": {
+                      "type": "object",
+                      "form": true,
+                      "properties": {
+                          "nvidia.com/gpu": {
+                              "description": "GPU to allocate to this instance.",
+                              "type": "string",
+                              "default": "1",
+                              "render": "slider",
+                              "sliderMin": 1,
+                              "sliderMax": 3,
+                              "sliderStep": 1,
+                              "sliderUnit": "",
+                              "form": true,
+                              "hidden": {
+                                  "value": false,
+                                  "path": "resources/gpuEnabled"
+                              }
+                            }
+                      }
                     }
               }
           }
@@ -122,6 +116,20 @@
                 "description": "option when pulling the docker image",
                 "default": "IfNotPresent",
                 "enum": ["IfNotPresent","Always","Never"]
+              },
+              "library": {
+                "description": "You can choose Pytorch or Tensorflow to be in your environment",
+                "type": "string",
+                "enum": [
+                    "pytorch",
+                    "tensorflow",
+                    "none"
+                ],
+                "default": "none",
+                "hidden": {
+                    "value": true,
+                    "path": "service/image/custom/enabled"
+                }
               },
               "version": {
                 "description": "vscode supported version",
@@ -665,29 +673,5 @@
         }
       }
     }
-  },
-  "if":{
-    "properties": {
-      "resources": {
-        "properties": {
-          "limits":{
-            "properties": {
-              "nvidia.com/gpu": { "const": "0" }
-            }
-          }
-        }
-      }
-    }
-  },
-  "then": {
-    "properties": {
-      "gpuEnabled": { "const": false }
-    }
-  },
-  "else": {
-    "properties": {
-      "gpuEnabled": { "const": true }
-    }
   }
-  
 }

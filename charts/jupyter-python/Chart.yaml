@@ -8,7 +8,7 @@ keywords:
 home: https://jupyter.org/
 sources:
   - https://github.com/InseeFrLab/images-datascience
-  - https://github.com/amine-bs/helm-charts
+  - https://github.com/inseefrlab/helm-charts-interactive-services
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
@@ -22,7 +22,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.5.1
+version: 1.5.2
 
 dependencies:
   - name: library-chart
