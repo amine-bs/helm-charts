@@ -50,6 +50,28 @@ entries:
     version: 1.11.0
   jupyter-python:
   - apiVersion: v2
+    created: "2022-12-01T08:44:25.662478181Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The JupyterLab IDE with Python, Julia, and a collection of standard
+      data science packages.
+    digest: 08155b0044fbf1e43d236c2bcfb372de771a7089c7a6e8529987ac6b88a4e620
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - Python
+    name: jupyter-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/inseefrlab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/jupyter-python-1.5.3/jupyter-python-1.5.3.tgz
+    version: 1.5.3
+  - apiVersion: v2
     created: "2022-12-01T08:23:41.519142698Z"
     dependencies:
     - name: library-chart
@@ -447,6 +469,28 @@ entries:
     version: 1.4.0
   jupyter-r:
   - apiVersion: v2
+    created: "2022-12-01T08:44:25.874971793Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The JupyterLab IDE with an R kernel, and a collection of standard
+      data science packages.
+    digest: 563898176d23416211f3fa51cc77877c30d0aef0e3f9a39bc6134afb444436c6
+    home: https://jupyter.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/jupyter.png
+    keywords:
+    - Jupyter
+    - R
+    name: jupyter-r
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/jupyter-r-1.3.1/jupyter-r-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
     created: "2022-11-30T12:20:13.607202677Z"
     dependencies:
     - name: library-chart
@@ -478,6 +522,27 @@ entries:
     - https://github.com/amine-bs/helm-charts/releases/download/library-chart-1.0.3/library-chart-1.0.3.tgz
     version: 1.0.3
   rstudio:
+  - apiVersion: v2
+    created: "2022-12-01T08:44:26.143066666Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The RStudio IDE with a collection of standard data science packages.
+    digest: b51962b22ddbad6aaeea5b7101f67dc0ce2c00bbac83be97052b3be36518232a
+    home: https://www.rstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/rstudio.png
+    keywords:
+    - RStudio
+    - R
+    name: rstudio
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/rstudio-1.5.2/rstudio-1.5.2.tgz
+    version: 1.5.2
   - apiVersion: v2
     created: "2022-12-01T08:23:41.653535562Z"
     dependencies:
@@ -569,6 +634,28 @@ entries:
     - https://github.com/amine-bs/helm-charts/releases/download/rstudio-sparkr-1.4.0/rstudio-sparkr-1.4.0.tgz
     version: 1.4.0
   vscode-python:
+  - apiVersion: v2
+    created: "2022-12-01T08:44:26.365535714Z"
+    dependencies:
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.0.3
+    description: The Visual Studio Code IDE with Python, Julia, and a collection of
+      standard data science packages.
+    digest: 18a93c82aa348ba835535654e20a920ef7e0f831754adbf53f17f1b65be66b53
+    home: https://code.visualstudio.com/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/vscode.png
+    keywords:
+    - VSCode
+    - Python
+    name: vscode-python
+    sources:
+    - https://github.com/InseeFrLab/images-datascience
+    - https://github.com/InseeFrLab/helm-charts-interactive-services
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/vscode-python-1.2.2/vscode-python-1.2.2.tgz
+    version: 1.2.2
   - apiVersion: v2
     created: "2022-12-01T08:23:41.782084675Z"
     dependencies:
@@ -726,4 +813,4 @@ entries:
     urls:
     - https://github.com/amine-bs/helm-charts/releases/download/vscode-tensorflow-gpu-1.2.0/vscode-tensorflow-gpu-1.2.0.tgz
     version: 1.2.0
-generated: "2022-12-01T08:23:41.782228476Z"
+generated: "2022-12-01T08:44:26.365694716Z"
