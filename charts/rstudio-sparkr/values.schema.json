@@ -20,17 +20,16 @@
                         "description": "supported versions",
                         "type": "string",
                         "enum": [
-                            "inseefrlab/onyxia-rstudio-sparkr:r4.2.3-spark3.3.0",
-                            "inseefrlab/onyxia-rstudio-sparkr:r4.2.3-spark3.2.0",
-                            "inseefrlab/onyxia-rstudio-sparkr:r4.1.2-spark3.3.0",
-                            "inseefrlab/onyxia-rstudio-sparkr:r4.1.2-spark3.2.0"
+                            "r4.2.3-spark3.3.0",
+                            "r4.2.3-spark3.2.0",
+                            "r4.1.2-spark3.3.0",
+                            "r4.1.2-spark3.2.0"
                                 ],
-                        "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                         "hidden": {
                             "value": true,
                             "path": "service/image/custom/enabled"
                         },
-                        "default": "inseefrlab/onyxia-rstudio-sparkr:r4.2.3-spark3.3.0"
+                        "default": "r4.2.3-spark3.3.0"
                       },
                       "custom" : {
                         "description": "use a custom RStudio docker image",
@@ -46,7 +45,6 @@
                             "description": "RStudio unsupported version",
                             "type": "string",
                             "default": "inseefrlab/onyxia-rstudio-sparkr:r4.2.3-spark3.3.0",
-                            "pattern": "^[a-z0-9-_./]+(:[a-z0-9-_.]+)?$",
                             "hidden": {
                                 "value": false,
                                 "path": "service/image/custom/enabled"
@@ -92,6 +90,12 @@
             "description": "Your service will have at least the requested resources and never more than its limits. No limit for a resource and you can consume everything left on the host machine.",
             "type": "object",
             "properties": {
+                "gpuEnabled": {
+                  "description": "Enable GPU",
+                  "title": "Enable GPU",
+                  "type": "boolean",
+                  "default": false
+              },
                 "requests": {
                     "description": "Guaranteed resources",
                     "type": "object",
@@ -157,6 +161,27 @@
                             "sliderExtremity": "up",
                             "sliderExtremitySemantic": "Maximum",
                             "sliderRangeId": "memory"
+                          },
+                          "gpu": {
+                            "type": "object",
+                            "form": true,
+                            "properties": {
+                                "nvidia.com/gpu": {
+                                    "description": "GPU to allocate to this instance",
+                                    "type": "string",
+                                    "default": "1",
+                                    "render": "slider",
+                                    "sliderMin": 1,
+                                    "sliderMax": 3,
+                                    "sliderStep": 1,
+                                    "sliderUnit": "",
+                                    "form": true,
+                                    "hidden": {
+                                        "value": false,
+                                        "path": "resources/gpuEnabled"
+                                    }
+                                  }
+                            }
                           }
                     }
                 }
