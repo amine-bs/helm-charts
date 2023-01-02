@@ -222,7 +222,6 @@
               "type": "string",
               "title": "username",
               "default": "airflow",
-              "form": true,
               "x-form": {
                 "value": "{{project.id}}"
               },
@@ -232,26 +231,21 @@
             },
             "postgresqlPassword": {
               "type": "string",
-              "title": "username",
+              "title": "password",
               "default": "airflow",
               "render": "password",
-              "form": true,
               "x-form": {
                 "value": "{{project.password}}"
               },
               "x-onyxia": {
                 "overwriteDefaultWith": "{{project.password}}"
               }
-            },
-            "postgresqlDatabase": {
-              "type": "string",
-              "title": "username",
-              "default": "airflow"
             }
           }
         },
         "airflow": {
           "type": "object",
+          "title": "user",
           "properties": {
             "config": {
               "type": "object",
@@ -276,34 +270,33 @@
               "type": "array",
               "description": "list of users credentials",
               "title": "user credentials",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "default": "admin",
-                    "form": true,
-                    "x-form": {
-                      "value": "{{project.id}}"
-                    },
-                    "x-onyxia": {
-                      "overwriteDefaultWith": "{{project.id}}"
-                    }
+              "items": [
+                {
+                  "title": "username",
+                  "type": "string",
+                  "default": "admin",
+                  "x-form": {
+                    "value": "{{project.id}}"
                   },
-                  "password": {
-                    "type": "string",
-                    "default": "admin",
-                    "form": true,
-                    "render": "password",
-                    "x-form": {
-                      "value": "{{project.password}}"
-                    },
-                    "x-onyxia": {
-                      "overwriteDefaultWith": "{{project.password}}"
-                    }
+                  "x-onyxia": {
+                    "overwriteDefaultWith": "{{project.id}}"
+                  }
+                  },
+                {
+                  "title": "password",
+                  "type": "string",
+                  "default": "admin",
+                  "render": "password",
+                  "x-form": {
+                    "value": "{{project.password}}"
+                  },
+                  "x-onyxia": {
+                    "overwriteDefaultWith": "{{project.password}}"
                   }
                 }
-              }
+                
+              ]
+              
             }
           }
         }           
