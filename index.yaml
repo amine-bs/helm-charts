@@ -3,6 +3,29 @@ entries:
   airflow:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-01-02T16:28:27.428729123Z"
+    dependencies:
+    - name: airflow
+      repository: https://airflow-helm.github.io/charts/
+      version: 8.6.1
+    - name: library-chart
+      repository: https://inseefrlab.github.io/helm-charts-interactive-services
+      version: 1.3.0
+    description: Airflow is a platform created by the community to programmatically
+      author, schedule and monitor workflows.
+    digest: e21f20eb5d80f70c5bb7c3c5aed98e944dc68a3e86d4dc324dbc75a9a1964dc5
+    home: https://airflow.apache.org/
+    icon: https://minio.lab.sspcloud.fr/projet-onyxia/assets/servicesImg/airflow.png
+    name: airflow
+    sources:
+    - https://github.com/InseeFrLab/helm-charts-automation/tree/master/charts/airflow
+    - https://github.com/apache/airflow
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/airflow-0.1.5/airflow-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-01-02T16:06:41.861558597Z"
     dependencies:
     - name: airflow
@@ -335,4 +358,4 @@ entries:
     urls:
     - https://github.com/amine-bs/helm-charts/releases/download/vscode-python-1.2.3/vscode-python-1.2.3.tgz
     version: 1.2.3
-generated: "2023-01-02T16:06:41.861582897Z"
+generated: "2023-01-02T16:28:27.428760923Z"
