@@ -103,6 +103,7 @@
       "properties": {
         "dags": {
           "type": "object",
+          "title": "Git",
           "description": "configuration for airflow dags",
           "properties": {
             "gitSync": {
@@ -127,13 +128,14 @@
                 },
                 "branch": {
                   "type": "string",
+                  "title": "Repo Branch",
                   "description": "Git repo branch",
                   "default": "main"
                 },
                 "username": {
                   "type": "string",
                   "description": "Git username",
-                  "default": "user",
+                  "title": "Git Username",
                   "x-form": {
                     "value": "{{git.name}}"
                   },
@@ -144,8 +146,8 @@
                 "token": {
                   "type": "string",
                   "description": "Git token",
+                  "title": "Git Password",
                   "render": "password",
-                  "default": "token",
                   "x-form": {
                     "value": "{{git.token}}"
                   },
@@ -222,11 +224,9 @@
               "default": "airflow",
               "form": true,
               "x-form": {
-                "hidden": true,
                 "value": "{{project.id}}"
               },
               "x-onyxia": {
-                "hidden": true,
                 "overwriteDefaultWith": "{{project.id}}"
               }
             },
@@ -237,11 +237,9 @@
               "render": "password",
               "form": true,
               "x-form": {
-                "hidden": true,
                 "value": "{{project.password}}"
               },
               "x-onyxia": {
-                "hidden": true,
                 "overwriteDefaultWith": "{{project.password}}"
               }
             },
@@ -254,7 +252,6 @@
         },
         "airflow": {
           "type": "object",
-          "description": "global airflow",
           "properties": {
             "config": {
               "type": "object",
@@ -265,9 +262,11 @@
                   "title": "user namespace",
                   "form": true,
                   "x-form": {
+                    "hidden": true,
                     "value": "{{project.id}}"
                   },
                   "x-onyxia": {
+                    "hidden": true,
                     "overwriteDefaultWith": "{{project.id}}"
                   }
                 }
@@ -276,7 +275,7 @@
             "users": {
               "type": "array",
               "description": "list of users credentials",
-              "title": "user's credentials",
+              "title": "user credentials",
               "items": {
                 "type": "object",
                 "properties": {
