@@ -31,6 +31,18 @@
       "description": "security specific configuration",
       "type": "object",
       "properties": {
+          "password": {
+            "type": "string",
+            "title": "password",
+            "description": "Admin password",
+            "form": true,
+            "x-form": {
+              "value": "{{project.password}}"
+            },
+            "x-onyxia": {
+              "overwriteDefaultWith": "{{project.password}}"
+            }
+          },
           "allowlist": {
               "type": "object",
               "description": "IP protection",
@@ -265,40 +277,6 @@
                   }
                 }
               }
-            },
-            "users": {
-              "type": "array",
-              "description": "list of users credentials",
-              "title": "user credentials",
-              "items": [
-                {
-                  "type": "object",
-                  "title": "user",
-                  "properties": {
-                    "username": {
-                      "descirption": "airflow username",
-                      "default": "admin",
-                      "x-form": {
-                        "value": "{{project.id}}"
-                      },
-                      "x-onyxia": {
-                        "overwriteDefaultWith": "{{project.id}}"
-                      }
-                    },
-                    "password": {
-                      "descirption": "airflow password",
-                      "default": "admin",
-                      "x-form": {
-                        "value": "{{project.password}}"
-                      },
-                      "x-onyxia": {
-                        "overwriteDefaultWith": "{{project.password}}"
-                      }
-                    }
-                  }
-                }
-              ]
-              
             }
           }
         }           

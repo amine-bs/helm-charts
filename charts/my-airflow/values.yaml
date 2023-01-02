@@ -6,6 +6,7 @@ security:
   networkPolicy:
     enabled: false
     from: []
+  password: "admin"
 
 
 airflow:
@@ -39,21 +40,33 @@ airflow:
     ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/configuration/airflow-configs.md
     config:
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+      AIRFLOW__WEBSERVER__AUTH_BACKEND: "airflow.contrib.auth.backends.password_auth"
       AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-      AIRFLOW__KUBERNETES__NAMESPACE: "user-mbenxsalha"
+      AIRFLOW__KUBERNETES__NAMESPACE: "default"
       AIRFLOW__KUBERNETES__WORKER_CONTAINER_REPOSITORY: "apache/airflow"
       AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "2.2.5-python3.8"
       AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.default"
+
 
     ## a list of users to create
     ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/security/airflow-users.md
     users:
       - username: admin
-        password: admin
+        password: ${password}
         role: Admin
         email: admin@example.com
         firstName: admin
         lastName: admin
+
+    usersTemplates: 
+      username:
+        kind: configmap
+        name: airflow-username-configmap
+        key: username
+      password:
+        kind: secret
+        name: airflow-password-secret
+        key: password
 
     ## a list airflow connections to create
     ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/dags/airflow-connections.md
@@ -287,7 +300,7 @@ airflow:
     ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/kubernetes/ingress.md
     enabled: true
     web:
-      host: airflow.lab.sspcloud.fr
+      host: example-chart.local
       ingressClassName: ""
       annotations: {}
       tls: 
