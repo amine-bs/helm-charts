@@ -272,29 +272,31 @@
               "title": "user credentials",
               "items": [
                 {
-                  "title": "username",
-                  "type": "string",
-                  "default": "admin",
-                  "x-form": {
-                    "value": "{{project.id}}"
-                  },
-                  "x-onyxia": {
-                    "overwriteDefaultWith": "{{project.id}}"
-                  }
-                  },
-                {
-                  "title": "password",
-                  "type": "string",
-                  "default": "admin",
-                  "render": "password",
-                  "x-form": {
-                    "value": "{{project.password}}"
-                  },
-                  "x-onyxia": {
-                    "overwriteDefaultWith": "{{project.password}}"
+                  "type": "object",
+                  "title": "user",
+                  "properties": {
+                    "username": {
+                      "descirption": "airflow username",
+                      "default": "admin",
+                      "x-form": {
+                        "value": "{{project.id}}"
+                      },
+                      "x-onyxia": {
+                        "overwriteDefaultWith": "{{project.id}}"
+                      }
+                    },
+                    "password": {
+                      "descirption": "airflow password",
+                      "default": "admin",
+                      "x-form": {
+                        "value": "{{project.password}}"
+                      },
+                      "x-onyxia": {
+                        "overwriteDefaultWith": "{{project.password}}"
+                      }
+                    }
                   }
                 }
-                
               ]
               
             }
