@@ -59,10 +59,6 @@ airflow:
         lastName: admin
 
     usersTemplates: 
-      username:
-        kind: configmap
-        name: airflow-username-configmap
-        key: username
       password:
         kind: secret
         name: airflow-password-secret

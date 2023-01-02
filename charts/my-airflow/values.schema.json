@@ -116,17 +116,13 @@
         "dags": {
           "type": "object",
           "title": "Git",
-          "description": "configuration for airflow dags",
+          "description": "Git configuration for Airflow DAGs",
           "properties": {
             "gitSync": {
               "type": "object",
               "title": "git config",
               "description": "Git user configuration",
               "properties": {
-                "enabled": {
-                  "type": "boolean",
-                  "default": true
-                },
                 "repo": {
                   "type": "string",
                   "description": "Repository URL",
@@ -225,11 +221,6 @@
           "description": "postgresql database config",
           "type": "object",
           "properties": {
-            "enabled": {
-              "type": "boolean",
-              "description": "enable postgres",
-              "default": true
-            },
             "postgresqlUsername": {
               "type": "string",
               "title": "username",
