@@ -1,10 +1,10 @@
 
 security:
   allowlist:
-    enabled: false
+    enabled: true
     ip: "0.0.0.0/0"
   networkPolicy:
-    enabled: false
+    enabled: true
     from: []
   password: "admin"
 
