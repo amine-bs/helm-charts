@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "registry": {
+            "type": "string",
+            "default": "quay.io/bentoml"
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "repository": {
+                    "type": "string",
+                    "default": "yatai-image-builder"
+                },
+                "tag": {
+                    "type": "string",
+                    "default": ""
+                },
+                "pullPolicy": {
+                    "type": "string",
+                    "default": "IfNotPresent"
+                }
+            }
+        },
+        "yatai": {
+            "type": "object",
+            "properties": {
+                "endpoint": {
+                    "type": "string",
+                    "default": ""
+                },
+                "apiToken": {
+                    "type": "string",
+                    "default": ""
+                },
+                "clusterName": {
+                    "type": "string",
+                    "default": "default"
+                }
+            }
+        },
+        "dockerRegistry": {
+            "server": {
+                "type": "string",
+                "default": ""
+            },
+            "inClusterServer": {
+                "type": "boolean",
+                "default": false
+            },
+            "username": {
+                "type": "string",
+                "default": ""
+            },
+            "password": {
+                "type": "string",
+                "default": ""
+            },
+            "bentoRepositoryName": {
+                "type": "string",
+                "default": "yatai-bentos"
+            }
+        },
+        "aws": {
+            "type": "object",
+            "properties": {
+                "accessKeyID": {
+                    "type": "string",
+                    "default": ""
+                },
+                "secretAccessKey": {
+                    "type": "string",
+                    "default": ""
+                }
+            }
+        }
+    }
+}
