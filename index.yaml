@@ -425,4 +425,50 @@ entries:
     urls:
     - https://github.com/amine-bs/helm-charts/releases/download/vscode-python-1.2.3/vscode-python-1.2.3.tgz
     version: 1.2.3
-generated: "2023-01-09T14:41:35.400422777Z"
+  yatai:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2023-01-31T10:32:09.043663118Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.15
+    description: Yatai Helm chart
+    digest: 4d8725bbf1db4f16ba066085e217862db25ee23b57236a03b7dfde35bf44c188
+    home: https://github.com/bentoml/yatai
+    maintainers:
+    - email: contact@bentoml.ai
+      name: BentoML developers
+    name: yatai
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/yatai-1.1.3/yatai-1.1.3.tgz
+    version: 1.1.3
+  yatai-deployment:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2023-01-31T10:32:09.185326718Z"
+    description: The deployment component for Yatai
+    digest: 36938bfee6e68a84282a74dc45bffaf4f23860564d642dded67c4ca8d107dc00
+    name: yatai-deployment
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/yatai-deployment-1.1.3/yatai-deployment-1.1.3.tgz
+    version: 1.1.3
+  yatai-image-builder:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2023-01-31T10:32:09.31117165Z"
+    description: The image-builder component for Yatai
+    digest: f982fc6dc5d80cbc370e081bd16a85ad865a8792547012a59d3d26971ad3f351
+    name: yatai-image-builder
+    type: application
+    urls:
+    - https://github.com/amine-bs/helm-charts/releases/download/yatai-image-builder-1.1.3/yatai-image-builder-1.1.3.tgz
+    version: 1.1.3
+generated: "2023-01-31T10:32:09.311347951Z"
