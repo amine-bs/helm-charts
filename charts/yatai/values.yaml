@@ -48,7 +48,7 @@ ingress:
   className: ''
   enabled: true
   path: "/"
-  host: ""
+  host: "example.chart.com"
 
   tls: []
   #  - secretName: chart-example-tls
