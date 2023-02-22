@@ -1,44 +1,75 @@
-# Yatai Helm Chart
+# yatai
 
-The Yatai Helm Chart is the official way to operate Yatai on Kubernetes. It contains all the required components to get started, and can configure with external services base on needs.
+![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.3](https://img.shields.io/badge/AppVersion-1.1.3-informational?style=flat-square)
 
-See the [Yatai administrator's guide](https://github.com/bentoml/Yatai/blob/main/docs/admin-guide.md) for how to install Yatai and other information on charts, and advanced configuration.
+Yatai Helm chart
 
-Advantage of using Yatai Helm chart:
+**Homepage:** <https://github.com/bentoml/yatai>
 
-* Easy to deploy, upgrade, and maintain Yatai service on Kubernetes cluster
-* Easy to configure with external services
-* Up to date with the latest Yatai release
+## Maintainers
 
+| Name | Email | Url |
+| ---- | ------ | --- |
+| BentoML developers | <contact@bentoml.ai> |  |
 
-## TL;DR:
+## Requirements
 
-```bash
-helm repo remove bentoml 2> /dev/null || true
-helm repo add bentoml https://bentoml.github.io/helm-charts
-helm repo update bentoml
-kubectl create ns yatai-system
-helm install yatai bentoml/yatai -n yatai-system
-```
+| Repository | Name | Version |
+|------------|------|---------|
+| https://charts.bitnami.com/bitnami | common | 1.x.x |
+| https://charts.bitnami.com/bitnami | postgresql | 11.6.15 |
 
-## Helm chart deployment overview
+## Values
 
-This chart will create the following resources on Kubernetes:
-1. Yatai service under the `yatai-system` namespace.
-2. service account (if not configured).
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `100` |  |
+| autoscaling.minReplicas | int | `1` |  |
+| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| configFileContent | string | `nil` |  |
+| doNotTrack | bool | `false` |  |
+| enableHostTimeZone | bool | `false` |  |
+| fullnameOverride | string | `""` |  |
+| global.postgresql.auth.database | string | `"yatai"` |  |
+| global.postgresql.auth.postgresPassword | string | `"changeme"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"aminehub/yatai"` |  |
+| image.tag | string | `"1.1.3"` |  |
+| imagePullSecrets | list | `[]` |  |
+| ingress.className | string | `""` |  |
+| ingress.enabled | bool | `true` |  |
+| ingress.host | string | `"example.chart.com"` |  |
+| ingress.path | string | `"/"` |  |
+| ingress.tls | list | `[]` |  |
+| internalImages.debugger | string | `"quay.io/bentoml/bento-debugger:0.0.7"` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| podAnnotations | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| postgresql.fullnameOverride | string | `""` |  |
+| postgresql.image.tag | string | `"12"` |  |
+| replicaCount | int | `1` |  |
+| resources | object | `{}` |  |
+| s3.accessKey | string | `""` |  |
+| s3.accessKeyExistingSecretName | string | `""` |  |
+| s3.aceessKeyExistingSecretKey | string | `"access_key"` |  |
+| s3.bucketName | string | `""` |  |
+| s3.endpoint | string | `""` |  |
+| s3.region | string | `""` |  |
+| s3.secretKey | string | `""` |  |
+| s3.secretKeyExistingSecretKey | string | `"secret_key"` |  |
+| s3.secretKeyExistingSecretName | string | `""` |  |
+| s3.secure | bool | `true` |  |
+| securityContext | object | `{}` |  |
+| service.port | int | `80` |  |
+| service.type | string | `"ClusterIP"` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| tolerations | list | `[]` |  |
+| transmissionStrategy | string | `"proxy"` |  |
 
-# Community
-
-- To report a bug or suggest a feature request, use [GitHub Issues](https://github.com/bentoml/yatai-chart/issues/new/choose).
-- For other discussions, use [Github Discussions](https://github.com/bentoml/BentoML/discussions) under the [BentoML repo](https://github.com/bentoml/BentoML/)
-- To receive release announcements and get support, join us on [Slack](https://join.slack.com/t/bentoml/shared_invite/enQtNjcyMTY3MjE4NTgzLTU3ZDc1MWM5MzQxMWQxMzJiNTc1MTJmMzYzMTYwMjQ0OGEwNDFmZDkzYWQxNzgxYWNhNjAxZjk4MzI4OGY1Yjg).
-
-
-# Contributing
-
-There are many ways to contribute to the project:
-
-- If you have any feedback on the project, share it with the community in [Github Discussions](https://github.com/bentoml/BentoML/discussions) under the [BentoML repo](https://github.com/bentoml/BentoML/).
-- Report issues you're facing and "Thumbs up" on issues and feature requests that are relevant to you.
-- Investigate bugs and reviewing other developer's pull requests.
-- Contributing code or documentation to the project by submitting a Github pull request.
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
