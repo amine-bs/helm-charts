@@ -40,7 +40,7 @@ jobs:
           helm-docs -o README.md
           if [[ `git status --porcelain` ]]; then
             git add -A
-            git commit -m "Automated changes"
+            git commit -m "Generate Helm docs"
             git push
           fi
 
