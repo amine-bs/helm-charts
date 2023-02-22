@@ -27,16 +27,15 @@ The JupyterLab IDE with PySpark, an interface to use Apache Spark from Python.
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | coresite.configMapName | string | `""` |  |
-| discovery.hive | bool | `true` |  |
-| discovery.mlflow | bool | `true` |  |
+| discovery | object | `{"hive":true,"mlflow":true}` | see configmap-hive.yaml et helpers template |
 | environment.group | string | `"users"` |  |
 | environment.user | string | `"onyxia"` |  |
 | fullnameOverride | string | `""` |  |
 | git.branch | string | `""` |  |
 | git.cache | string | `""` |  |
-| git.configMapName | string | `""` |  |
+| git.configMapName | string | `""` | The name of the configmap to use. If not set and create is true, a name is generated using the fullname template |
 | git.email | string | `""` |  |
-| git.enabled | bool | `false` |  |
+| git.enabled | bool | `false` | Specifies whether a config map should be created |
 | git.name | string | `""` |  |
 | git.repository | string | `""` |  |
 | git.token | string | `""` |  |
@@ -76,9 +75,9 @@ The JupyterLab IDE with PySpark, an interface to use Apache Spark from Python.
 | resources.requests.cpu | string | `"100m"` |  |
 | resources.requests.memory | string | `"128Mi"` |  |
 | s3.accessKeyId | string | `""` |  |
-| s3.configMapName | string | `""` |  |
+| s3.configMapName | string | `""` | The name of the configmap to use. If not set and create is true, a name is generated using the fullname template |
 | s3.defaultRegion | string | `""` |  |
-| s3.enabled | bool | `false` |  |
+| s3.enabled | bool | `false` | Specifies whether a config map should be created |
 | s3.endpoint | string | `""` |  |
 | s3.secretAccessKey | string | `""` |  |
 | s3.sessionToken | string | `""` |  |
@@ -92,9 +91,9 @@ The JupyterLab IDE with PySpark, an interface to use Apache Spark from Python.
 | service.image.custom.version | string | `""` |  |
 | service.image.pullPolicy | string | `"IfNotPresent"` |  |
 | service.image.version | string | `""` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | spark.config."spark.driver.extraJavaOptions" | string | `"-Dcom.amazonaws.sdk.disableCertChecking={{ .Values.spark.disabledCertChecking }}"` |  |
 | spark.config."spark.executor.extraJavaOptions" | string | `"-Dcom.amazonaws.sdk.disableCertChecking={{ .Values.spark.disabledCertChecking }}"` |  |
 | spark.config."spark.kubernetes.authenticate.driver.serviceAccountName" | string | `"{{ include \"library-chart.fullname\" . }}"` |  |
@@ -121,9 +120,9 @@ The JupyterLab IDE with PySpark, an interface to use Apache Spark from Python.
 | startupProbe.successThreshold | int | `1` |  |
 | startupProbe.timeoutSeconds | int | `5` |  |
 | tolerations | list | `[]` |  |
-| vault.configMapName | string | `""` |  |
+| vault.configMapName | string | `""` | The name of the configmap to use. If not set and create is true, a name is generated using the fullname template |
 | vault.directory | string | `""` |  |
-| vault.enabled | bool | `false` |  |
+| vault.enabled | bool | `false` | Specifies whether a config map should be created |
 | vault.mount | string | `""` |  |
 | vault.secret | string | `""` |  |
 | vault.token | string | `""` |  |
