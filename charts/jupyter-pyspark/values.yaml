@@ -52,9 +52,9 @@ environment:
   group: users
 
 s3:
-  # Specifies whether a config map should be created
+  # -- Specifies whether a config map should be created
   enabled: false
-  # The name of the configmap to use.
+  # -- The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
   accessKeyId: ""
@@ -65,9 +65,9 @@ s3:
 
 
 vault:
-  # Specifies whether a config map should be created
+  # -- Specifies whether a config map should be created
   enabled: false
-  # The name of the configmap to use.
+  # -- The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
   token: ""
@@ -77,9 +77,9 @@ vault:
   directory: ""  
 
 git:
-  # Specifies whether a config map should be created
+  # -- Specifies whether a config map should be created
   enabled: false
-  # The name of the configmap to use.
+  # -- The name of the configmap to use.
   # If not set and create is true, a name is generated using the fullname template
   configMapName: ""
   name: ""
@@ -90,7 +90,7 @@ git:
   branch: ""
   
 #active ou non la recherche d'un hiveMetastore dans le namespace
-# see configmap-hive.yaml et helpers template
+# -- see configmap-hive.yaml et helpers template
 discovery:
   hive: true
   mlflow: true
@@ -114,11 +114,11 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
